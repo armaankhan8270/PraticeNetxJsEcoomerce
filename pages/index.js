@@ -3,10 +3,19 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Layout from "../Components/Layout";
+import ProductDeatil from "./ProductDeatil";
 
 export default function Home({ data }) {
   const [datas, setdatas] = useState([]);
   const [product, setproduct] = useState([]);
+  const [show, setshow] = useState(false);
+  const [items, setitem] = useState({
+    title: "",
+    img: "",
+    desc: "",
+    price: "",
+    categorey: "",
+  });
   useEffect(() => {
     const getData = async () => {
       const url = `https://fakestoreapi.com/products`;
@@ -20,6 +29,19 @@ export default function Home({ data }) {
   }, []);
   return (
     <Layout title={"amzon"}>
+      <>
+        {show ? (
+          <ProductDeatil
+            title={items.title}
+            img={items.img}
+            desc={items.desc}
+            price={items.price}
+            categorey={items.categorey}
+          />
+        ) : (
+          ""
+        )}
+      </>
       <div className="grid gap-4 lg:grid-cols- md:grid-cols-2 sm:grid-cols-1">
         {datas?.map((item, ind) => {
           return (
@@ -71,7 +93,21 @@ export default function Home({ data }) {
                     <h1 className="text-gray-700 font-bold text-xl">
                       {item.price}
                     </h1>
-                    <button className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">
+                    <button
+                      onClick={() => {
+                        setitem({
+                          title: item.title,
+                          img: item.image,
+                          desc: item.description,
+                          price: item.price,
+                          categorey: item.category,
+                        });
+                        setshow(true);
+                        console.log(items);
+                        window.scroll(0, 0);
+                      }}
+                      className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded"
+                    >
                       Add to Card
                     </button>
                   </div>
