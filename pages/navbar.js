@@ -27,6 +27,11 @@ const Navbar = () => {
                 Login
               </a>
             </Link>
+            <Link className="text-black m-2 no-underline" href="/Signup">
+              <a className="text-lg text-black m-2 no-underline  font-bold">
+                Signup
+              </a>
+            </Link>
           </div>
         </nav>
       </header>
