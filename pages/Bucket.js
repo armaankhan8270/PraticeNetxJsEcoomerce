@@ -16,7 +16,7 @@ const Bucket = () => {
   //   },
 
   // ]);
-  const { bucket, setbucket } = GlobalStoreContext();
+  const { bucket, setbucket, Cost } = GlobalStoreContext();
   const armaan = ["s"];
   return (
     <div className=" overflow-auto  flex font-serif justify-between">
@@ -65,7 +65,17 @@ const Bucket = () => {
         {/* ); */}
         {/* })} */}
       </div>
-      <div className="w-[25%] bg-slate-200 shadow-md">Subtotal</div>
+      <div className="w-[25%] font-sans bg-[#F5F5F5] m-2 shadow-white shadow-md">
+        <div className="h-64 m-2 shadow-md shadow-slate-900">
+          <h1 className="text-sm lg:text-3xl text-slate-900 font-bold p-3 ">
+            SubTotal
+          </h1>
+          <h1 className="text-sm lg:text-3xl text-slate-400 font-bold  ">
+            TotalItems: {bucket?.length}
+          </h1>
+          <h1>Cost: {Cost}</h1>
+        </div>
+      </div>
     </div>
   );
 };

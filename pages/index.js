@@ -20,8 +20,7 @@ export default function Home({ data }) {
     categorey: "",
   });
   const DAAAta = [];
-  const { bucket, setbucket, cartData, AddToCart, setAddToCart } =
-    GlobalStoreContext();
+  const { bucket, setbucket, Cost, setCost } = GlobalStoreContext();
   useEffect(() => {
     const getData = async () => {
       const url = `https://fakestoreapi.com/products`;
@@ -128,6 +127,10 @@ export default function Home({ data }) {
                               price: item.price,
                               categorey: item.category,
                             });
+                            for (let i = 0; i <= bucket.length; i++) {
+                              const Price = bucket[i].price;
+                              setCost(300);
+                            }
                           }}
                         >
                           add

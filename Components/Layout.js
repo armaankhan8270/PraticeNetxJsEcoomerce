@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { GlobalStoreContext } from "../context/Items";
+import Navbar from "../pages/navbar";
 const Layout = ({ children, title }) => {
   const { bucket, setbucket } = GlobalStoreContext();
   return (
@@ -14,7 +15,7 @@ const Layout = ({ children, title }) => {
       </Head>
       <div className="flex text-black   min-h-screen flex-col justify-between">
         <header>
-          <nav className="flex px-4 items-center justify-between h-12 shadow-md text-black no-underline">
+          {/* <nav className="flex px-4 items-center justify-between h-12 shadow-md text-black no-underline">
             <Link href="/">
               <a className="text-lg text-black no-underline  font-bold">
                 Ecommerce
@@ -35,7 +36,8 @@ const Layout = ({ children, title }) => {
                 </a>
               </Link>
             </div>
-          </nav>
+          </nav> */}
+          {/* <Navbar /> */}
         </header>
         <main className="container w-full  mt-4">{children}</main>
         <footer className="bg-gray-200 text-center h-12 lg:text-left">
