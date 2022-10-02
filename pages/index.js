@@ -19,7 +19,9 @@ export default function Home({ data }) {
     price: "",
     categorey: "",
   });
-  const { bucket, setbucket } = GlobalStoreContext();
+  const DAAAta = [];
+  const { bucket, setbucket, cartData, AddToCart, setAddToCart } =
+    GlobalStoreContext();
   useEffect(() => {
     const getData = async () => {
       const url = `https://fakestoreapi.com/products`;
@@ -110,6 +112,15 @@ export default function Home({ data }) {
                               price: item.price,
                               categorey: item.category,
                             });
+
+                            setshow(true);
+                          }}
+                          className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded"
+                        >
+                          Add to Card
+                        </button>
+                        <button
+                          onClick={() => {
                             setbucket({
                               title: item.title,
                               img: item.image,
@@ -117,14 +128,9 @@ export default function Home({ data }) {
                               price: item.price,
                               categorey: item.category,
                             });
-                            setshow(true);
-                            setcart(true);
-                            console.log(items);
-                            window.scroll(0, 0);
                           }}
-                          className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded"
                         >
-                          Add to Card
+                          add
                         </button>
                       </div>
                     </div>

@@ -9,13 +9,17 @@ export const StateStoreContext = ({ children }) => {
       title: "Shues",
       img: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSUXtYMXAEf9DKh95KpQL1uNuKLa-fRmLRx8Q34Xnkvlc8jFuEgkTGTWVbakfF0POY7_L9z8m2J_F5SPDpnPrzAxd8Ni16aCmXZl-V3mD7b6LhypaDmArbv&usqp=CAE",
       desc: "nice shoes",
-      price: 345,
+      price: 3453,
       categorey: "clothes",
     },
   ]);
+  const CratData = [];
+  const [AddToCart, setAddToCart] = useState([]);
 
   return (
-    <StoreContext.Provider value={{ bucket, setbucket }}>
+    <StoreContext.Provider
+      value={{ bucket, setbucket, CratData, AddToCart, setAddToCart }}
+    >
       {children}
     </StoreContext.Provider>
   );
